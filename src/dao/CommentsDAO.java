@@ -21,11 +21,11 @@ public class CommentsDAO implements DAO<Comments> {
 	private Comments comments;	 
 
 	@Override
-	public Optional<Comments> get(int new_id) {
+	public Optional<Comments> get(int news_id) {
 		try {
 			connection = DB.getConnection();
 	        preparedStatement = connection.prepareStatement("select * from comments where news_id=?");      
-	        preparedStatement.setInt(1, new_id);
+	        preparedStatement.setInt(1, news_id);
 	        resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
             	comments = new Comments();
@@ -63,7 +63,7 @@ public class CommentsDAO implements DAO<Comments> {
 		
         try {
         	connection = DB.getConnection();
-        	resultSet = connection.prepareStatement("select * from comments where news_id=?").executeQuery();
+        	resultSet = connection.prepareStatement("select * from comments").executeQuery();
             while(resultSet.next()){
             	comments = new Comments(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4));
                 list.add(comments);

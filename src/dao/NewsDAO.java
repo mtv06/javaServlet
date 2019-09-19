@@ -112,13 +112,13 @@ public class NewsDAO implements DAO<News> {
 	}
 
 	@Override
-	public void add(News t) {
+	public void add(News n) {
 		try {
 			connection = DB.getConnection();
 			preparedStatement = connection.prepareStatement("insert into news(title, description, date) values(?,?,?)");
-			preparedStatement.setString(1, t.getTitle());
-			preparedStatement.setString(2, t.getDescription());
-			preparedStatement.setString(3, t.getDate());
+			preparedStatement.setString(1, n.getTitle());
+			preparedStatement.setString(2, n.getDescription());
+			preparedStatement.setString(3, n.getDate());
 			preparedStatement.executeUpdate();
 		} catch (ClassNotFoundException | SQLException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
@@ -143,14 +143,14 @@ public class NewsDAO implements DAO<News> {
 	}
 
 	@Override
-	public void update(News t) {
+	public void update(News n) {
 		try {
 			connection = DB.getConnection();
 			preparedStatement = connection.prepareStatement("update news set title=?, date=?, description=? where id=?");
-			preparedStatement.setString(1, t.getTitle());
-			preparedStatement.setString(2, t.getDate());
-			preparedStatement.setString(3, t.getDescription());
-			preparedStatement.setInt(4, t.getId());
+			preparedStatement.setString(1, n.getTitle());
+			preparedStatement.setString(2, n.getDate());
+			preparedStatement.setString(3, n.getDescription());
+			preparedStatement.setInt(4, n.getId());
 			preparedStatement.executeUpdate();
 		} catch (ClassNotFoundException | SQLException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);

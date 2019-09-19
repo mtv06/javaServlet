@@ -11,6 +11,7 @@ public class Comments {
 	}
 	   	 
     public Comments(int id, String description, String date, int news_id) {
+    	super();
         this.id = id;
         this.description = description;
         this.date = date;

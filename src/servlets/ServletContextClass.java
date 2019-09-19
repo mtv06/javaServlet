@@ -30,7 +30,12 @@ public class ServletContextClass implements ServletContextListener {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		} catch (SQLException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
-		} 
+		} finally {
+			if (connection != null)
+		      try { 
+		    	  connection.close(); 
+		      } catch (SQLException ignore) { }
+		}
     }
 
     public void contextDestroyed(ServletContextEvent arg0) 
