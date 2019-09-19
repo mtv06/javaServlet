@@ -7,8 +7,7 @@ import java.sql.SQLException;
 
 public class DB {
 	static final String JDBC_DRIVER = "org.h2.Driver";   
-//	static final String DB_URL = "jdbc:h2:~/test";  
-	static final String DB_URL = "jdbc:h2:file:C:/data/test";
+	static final String DB_URL = "jdbc:h2:~/test";  
     static final String USER = "sa"; 
     static final String PASS = ""; 
 	
@@ -18,11 +17,4 @@ public class DB {
 		return connection;
 	}
 	
-	public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-        PreparedStatement preparedStatement =  null;
-        Connection connection = getConnection();
-        preparedStatement = connection.prepareStatement(sql);      
-        return preparedStatement;
-    }
-
 }

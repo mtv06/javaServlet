@@ -36,3 +36,5 @@ local.properties
 
 # Annotation Processing
 .apt_generated/
+/build/
+/target/

@@ -2,7 +2,6 @@ package servlets;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +21,7 @@ public class ServletContextClass implements ServletContextListener {
     		connection = DB.getConnection();
     		BaseTable.createTableNews(connection);
     		BaseTable.createTableComments(connection);
+    		connection.close();
 		} catch (ClassNotFoundException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		} catch (InstantiationException ex) {
@@ -36,7 +36,9 @@ public class ServletContextClass implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent arg0) 
     {
     	try {
-			connection.close ();
+    		if (connection != null) {
+    			connection.close ();
+    		}
 		} catch (SQLException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		}       
