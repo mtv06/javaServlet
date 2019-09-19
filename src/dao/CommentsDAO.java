@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import db.DB;
 import models.Comments;
 
-public class CommentsDAO implements DAO<Comments> {
+public class CommentsDAO implements IDAO<Comments> {
 	private static final Logger log = Logger.getLogger(NewsDAO.class.getName());
 	private Connection connection; 
 	private PreparedStatement preparedStatement;
@@ -21,11 +21,11 @@ public class CommentsDAO implements DAO<Comments> {
 	private Comments comments;	 
 
 	@Override
-	public Optional<Comments> get(int news_id) {
+	public Optional<Comments> get(int id) {
 		try {
 			connection = DB.getConnection();
-	        preparedStatement = connection.prepareStatement("select * from comments where news_id=?");      
-	        preparedStatement.setInt(1, news_id);
+	        preparedStatement = connection.prepareStatement("select * from comments where id=?");      
+	        preparedStatement.setInt(1, id);
 	        resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
             	comments = new Comments();

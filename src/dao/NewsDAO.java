@@ -16,7 +16,7 @@ import db.DB;
 import models.Comments;
 import models.News;
 
-public class NewsDAO implements DAO<News> {
+public class NewsDAO implements IDAO<News> {
 	private static final Logger log = Logger.getLogger(NewsDAO.class.getName());
 	private Connection connection; 
 	private PreparedStatement preparedStatement;
