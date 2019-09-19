@@ -1,5 +1,7 @@
-FROM tomcat:9-jre11
+FROM tomcat:9-jre8-alpine
+
+COPY target/RestService.war /usr/local/tomcat/webapps/RestService.war
+
+WORKDIR /usr/local/tomcat
+
 EXPOSE 8080
-RUN rm -fr /usr/local/tomcat/webapps/ROOT
-COPY ./target/RestService.war /usr/local/tomcat/webapps/ROOT.war
-CMD ["catalina.sh", "run"]
