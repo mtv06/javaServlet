@@ -58,6 +58,10 @@ public class NewsDAO implements IDAO<News> {
 	          try { 
 	        	  resultSet.close(); 
 	          } catch (SQLException ignore) { }
+			if (resultSet2 != null) 
+	          try { 
+	        	  resultSet2.close(); 
+	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 
@@ -98,6 +102,10 @@ public class NewsDAO implements IDAO<News> {
 	          try { 
 	        	  resultSet.close(); 
 	          } catch (SQLException ignore) { }
+			if (resultSet2 != null) 
+	          try { 
+	        	  resultSet2.close(); 
+	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 
@@ -127,10 +135,6 @@ public class NewsDAO implements IDAO<News> {
 		} catch (IllegalAccessException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		} finally {
-			if (resultSet != null) 
-	          try { 
-	        	  resultSet.close(); 
-	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 
@@ -159,10 +163,6 @@ public class NewsDAO implements IDAO<News> {
 		} catch (IllegalAccessException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		} finally {
-			if (resultSet != null) 
-	          try { 
-	        	  resultSet.close(); 
-	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 

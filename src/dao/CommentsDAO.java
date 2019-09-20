@@ -108,10 +108,6 @@ public class CommentsDAO implements IDAO<Comments> {
 		} catch (IllegalAccessException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		} finally {
-			if (resultSet != null) 
-	          try { 
-	        	  resultSet.close(); 
-	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 
@@ -139,10 +135,6 @@ public class CommentsDAO implements IDAO<Comments> {
 		} catch (IllegalAccessException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		} finally {
-			if (resultSet != null) 
-	          try { 
-	        	  resultSet.close(); 
-	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 
@@ -168,10 +160,6 @@ public class CommentsDAO implements IDAO<Comments> {
 		} catch (IllegalAccessException ex) {
 			log.log(Level.SEVERE, "Exception: ", ex);
 		}  finally {
-			if (resultSet != null) 
-	          try { 
-	        	  resultSet.close(); 
-	          } catch (SQLException ignore) { }
 	        if (preparedStatement != null) 
 	          try { 
 	        	  preparedStatement.close(); 
